@@ -2,7 +2,6 @@
 local SPlayer = game:GetService("Players")
 local RStorage = game:GetService("ReplicatedStorage")
 local STween = game:GetService("TweenService")
-
 --Player_Vars
 local LPlayer = SPlayer.LocalPlayer
 local Char = LPlayer.Character or LPlayer.CharacterAdded:Wait()
