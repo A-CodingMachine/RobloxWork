@@ -6,8 +6,10 @@ local SLighting = game:GetService("Lighting")
 --RStorage Vars
 local Game_Loop = RStorage.Game_Remotes.Game_Loop_Events
 local Role_Related = Game_Loop.Role_Related
+
 --Modules
 local Role_Des = require(RStorage.Mods.Role_Des)
+
 --Time_Vars
 local DayTimeLength = 5
 local NightTimeLength = 5
@@ -26,33 +28,8 @@ local Just_Started = false
 function ChangeHumanoid(JumpHeight, Speed, Char)
 
 	local Hum = Char:FindFirstChild("Humanoid")
-
 	Hum.WalkSpeed = Speed
 	Hum.JumpHeight = JumpHeight
-end
-function ChoosingTable()
-
-	print("Choosing_Table")
-	if not Looping then return end
-
-	--local ChairsTaken = {}
-	--local Chairs = workspace["Forest_Map"].Log_Chairs:GetChildren()
-
-	--for i,v in pairs(SPlayer:GetPlayers()) do
-
-	--	local Char = v.Character or v.CharacterAdded:Wait()
-
-	--	for i,v in pairs(Chairs) do
-	--		if not ChairsTaken[v.Name]  then
-	--			ChairsTaken[v.Name] = v
-	--			Char:PivotTo(v.PrimaryPart.CFrame)	
-	--		else
-	--			warn("Chair is taken")
-	--		end					
-	--	end
-	--	ChangeHumanoid(0,0,Char)
-
-	--end	
 end
 
 function UnSit()
@@ -159,7 +136,7 @@ function Use_Abilities()
 	end	
 end
 
-Start_Loop = coroutine.wrap(function()
+Start_Loop = coroutine.wrap(function() --loop wrapped in couritine if I need to run other functions
 	while game.Workspace:GetAttribute("Started") and Looping do
 		Cooridor()
 		Black_Room()
@@ -196,4 +173,4 @@ game.Workspace:GetAttributeChangedSignal("Started"):Connect(function()
 
 end)
 
-game.Workspace:SetAttribute("Started", true)
+game.Workspace:SetAttribute("Started", true) --for testing
